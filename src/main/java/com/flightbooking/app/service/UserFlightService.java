@@ -12,11 +12,11 @@ public interface UserFlightService {
 
 	public List<Flights> searchForFlights(FlightListInfo flightReq);
 
-	public Long bookTickets(UserBooking userBooking);
+	public String bookTickets(UserBooking userBooking);
 
-	public UserBooking findByPnr(Long pnr);
+	public UserBooking findByPnr(String pnr);
 
 	public ResponseEntity<List<UserBooking>> findByEmailId(String emailId);
 
-	public String deleteByPnr(Long pnr);
+	public String deleteByPnr(String pnr);
 }

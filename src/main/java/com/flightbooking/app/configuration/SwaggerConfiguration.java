@@ -17,7 +17,6 @@ public class SwaggerConfiguration {
 	@Bean
 	public Docket defaultApi() { 
 		return new Docket(DocumentationType.SWAGGER_2)  
-				.groupName("1.Default")
 				.select()                
 				.apis(RequestHandlerSelectors.basePackage("com.flightbooking.app"))              
 				.paths(PathSelectors.any())                          
@@ -27,7 +26,7 @@ public class SwaggerConfiguration {
 	@Bean
 	public Docket userApi() { 
 		return new Docket(DocumentationType.SWAGGER_2)  
-				.groupName("2.Users")
+				.groupName("~Users")
 				.select()                                  
 				.paths(PathSelectors.ant("/api/v1.0/flight/**"))                          
 				.build()
@@ -37,7 +36,7 @@ public class SwaggerConfiguration {
 	@Bean
 	public Docket adminApi() { 
 		return new Docket(DocumentationType.SWAGGER_2) 
-				.groupName("3.Admin")
+				.groupName("~Admin")
 				.select()                                  
 				.paths(PathSelectors.ant("/api/v1.0/admin/**"))                          
 				.build()

@@ -7,10 +7,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
 
@@ -19,9 +20,10 @@ import lombok.Data;
 @Entity
 public class UserBooking {
 	@Id	
-	@GeneratedValue(strategy=GenerationType.IDENTITY) //to be enhanced further
-	@Column(name="pnr")
-	private Long pnr;
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid")
+	@Column(name="pnr",columnDefinition = "CHAR(32)")
+	private String pnr;
 	
 	private long flightId;
 	private Date onboardDateTime;
@@ -34,7 +36,5 @@ public class UserBooking {
 	@OneToMany(targetEntity = Passenger.class, cascade = CascadeType.ALL)
 	@JoinColumn(name="pnr")
 	private List<Passenger> passenger;
-	
-	
 	
 }

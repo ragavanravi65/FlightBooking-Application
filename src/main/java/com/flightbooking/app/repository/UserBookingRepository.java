@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.flightbooking.app.model.entity.UserBooking;
 
-public interface UserBookingRepository extends JpaRepository<UserBooking, Long>{
+public interface UserBookingRepository extends JpaRepository<UserBooking, String>{
 
 	List<UserBooking> findByEmailId(String emailId);
 

@@ -5,7 +5,7 @@ import com.flightbooking.app.model.entity.Flights;
 
 public interface AdminFlightService {
 
-	void saveAirlineDetails(Flights flights);
+	String saveAirlineDetails(Flights flights);
 	
 	AirlineInfo updateAirLineBlocker(AirlineInfo airlineInfo);
 

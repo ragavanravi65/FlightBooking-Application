@@ -15,9 +15,14 @@ import com.flightbooking.app.model.entity.Flights;
 public interface FlightsListRepository extends JpaRepository<Flights, FlightId>{
 
 	@Query("select f from Flights f where "
-			+ "f.fromPlace=:#{#fc.fromPlace} and "
-			+ "f.toPlace=:#{#fc.toPlace} "
-			+ "and f.flightid.onboardDateTime>=:#{#fc.dateTime} and (:#{#fc.roundTrip} IS NULL OR f.roundTrip=:#{#fc.roundTrip})")
+			+ "(:#{#fc.fromPlace} IS NULL OR f.fromPlace=:#{#fc.fromPlace}) and "
+			+ "(:#{#fc.toPlace} IS NULL OR f.toPlace=:#{#fc.toPlace}) and "
+			+ "(:#{#fc.dateTime} IS NULL OR f.flightid.onboardDateTime>=:#{#fc.dateTime}) and "
+			+ "(:#{#fc.roundTrip} IS NULL OR f.roundTrip=:#{#fc.roundTrip})")
 	List<Flights> findFlightsByCriteria(@Param("fc")FlightListInfo fromPlace);
+	
+	
+	@Query(value="select * from flights f where f.flightno=:flightId and f.from_place=:fp and f.to_place=:tp",nativeQuery=true)
+	Flights getFlightToBook(@Param("flightId")long flightId,@Param("fp") String fromPlace,@Param("tp") String toPlace);
 
 }

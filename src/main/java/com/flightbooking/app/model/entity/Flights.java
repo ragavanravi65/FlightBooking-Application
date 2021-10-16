@@ -33,7 +33,6 @@ public class Flights {
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="airline")
-	@JsonIgnore
 	private AirlineInfo airlineInfos;
 	
 	Flights(){}
