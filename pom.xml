@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.flightbooking</groupId>
 	<artifactId>flights</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-RELEASE</version>
 	<name>FlightBookingApplication</name>
 	<description>Flight Booking Application</description>
 	<properties>
@@ -100,7 +100,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>FlightBooking-Demo</finalName>
 	</build>
 
 </project>
