@@ -16,11 +16,11 @@ import com.flightbooking.app.model.entity.AirlineInfo;
 @Repository
 public interface AirLineRepository extends JpaRepository<AirlineInfo, String>{
 
-	@Query(value="select DISTINCT(airline) from testschema.airline_info",nativeQuery=true)
+	@Query(value="select DISTINCT(airline) from airline_info",nativeQuery=true)
 	List<String> getAllairLineData();
 
 	@Modifying
     @Transactional
-	@Query(value="UPDATE testschema.airline_info ar SET ar.block_status=:bs where ar. airline=:ar",nativeQuery=true)
+	@Query(value="UPDATE airline_info ar SET ar.block_status=:bs where ar. airline=:ar",nativeQuery=true)
 	void updateBlockStatusByAR(@Param("bs")String blockStatus,@Param("ar")String ar);
 }

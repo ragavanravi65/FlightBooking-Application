@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "airline_info",schema="testschema")
+@Table(name = "airline_info")
 public class AirlineInfo {
 
 	@Id
